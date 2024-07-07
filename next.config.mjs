@@ -15,8 +15,7 @@ export function webpack(config, options) {
       filename: "static/chunks/remoteEntry.js",
       dts: false,
       exposes: {
-        "./home": "./pages/index.tsx",
-        "./pages-map": "./pages-map.js",
+        // "./home": "./pages/index.tsx",
       },
       remotes: remotes(options.isServer),
       shared: {},
