@@ -17,11 +17,13 @@ export function webpack(config, options) {
       exposes: {
         "./home": "./pages/index.tsx",
         "./about": "./pages/about.tsx",
-        "./pages-map": "./pages-map.js",
+        // "./pages-map": "./pages-map.js",
       },
       remotes: remotes(options.isServer),
       shared: {},
-      extraOptions: {},
+      extraOptions: {
+        exposePages: true,
+      },
     })
   );
 
