@@ -14,7 +14,9 @@ export function webpack(config, options) {
       name: "mf-missions-pages",
       filename: "static/chunks/remoteEntry.js",
       dts: false,
-      exposes: {},
+      exposes: {
+        "./pages-map": "./pages",
+      },
       remotes: remotes(options.isServer),
       shared: {},
       extraOptions: {
