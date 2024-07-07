@@ -15,13 +15,11 @@ export function webpack(config, options) {
       filename: "static/chunks/remoteEntry.js",
       dts: false,
       exposes: {
-        "./pages-map": "./pages",
+        "./pages-map": "./pages-map.js",
       },
       remotes: remotes(options.isServer),
       shared: {},
-      extraOptions: {
-        exposePages: true,
-      },
+      extraOptions: {},
     })
   );
 
