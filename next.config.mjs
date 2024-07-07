@@ -17,7 +17,7 @@ export function webpack(config, options) {
       exposes: {
         "./home": "./pages/index.tsx",
         "./about": "./pages/about.tsx",
-        // "./pages-map": "./pages-map.js",
+        "./pages-map": "./pages",
       },
       remotes: remotes(options.isServer),
       shared: {},
