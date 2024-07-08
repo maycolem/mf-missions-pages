@@ -23,28 +23,49 @@ const nextConfig = {
       process.env.REACT_APP_CALIMACO_API_BASE_AUTH,
     REACT_APP_WEB_CMS: process.env.REACT_APP_WEB_CMS,
   },
+  webpack: (config, { isServer }) => {
+    config.plugins.push(
+      new NextFederationPlugin({
+        name: "mf-missions-pages",
+        filename: "static/chunks/remoteEntry.js",
+        dts: false,
+        exposes: {
+          "./home": "./pages/index.tsx",
+          "./about": "./pages/about.tsx",
+          "./pages-map": "./pages-map.js",
+        },
+        remotes: remotes(isServer),
+        shared: {},
+        extraOptions: {
+          // exposePages: true,
+        },
+      })
+    );
+
+    return config;
+  },
 };
 
+// export function webpack(config, options) {
+//   config.plugins.push(
+//     new NextFederationPlugin({
+//       name: "mf-missions-pages",
+//       filename: "static/chunks/remoteEntry.js",
+//       dts: false,
+//       exposes: {
+//         "./home": "./pages/index.tsx",
+//         "./about": "./pages/about.tsx",
+//         "./pages-map": "./pages-map.js",
+//       },
+//       remotes: remotes(options.isServer),
+//       shared: {},
+//       extraOptions: {
+//         exposePages: true,
+//       },
+//     })
+//   );
+
+//   return config;
+// }
+
 export default nextConfig;
-
-export function webpack(config, options) {
-  config.plugins.push(
-    new NextFederationPlugin({
-      name: "mf-missions-pages",
-      filename: "static/chunks/remoteEntry.js",
-      dts: false,
-      exposes: {
-        "./home": "./pages/index.tsx",
-        "./about": "./pages/about.tsx",
-        "./pages-map": "./pages-map.js",
-      },
-      remotes: remotes(options.isServer),
-      shared: {},
-      extraOptions: {
-        exposePages: true,
-      },
-    })
-  );
-
-  return config;
-}

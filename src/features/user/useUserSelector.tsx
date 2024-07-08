@@ -1,4 +1,4 @@
-import { useAppSelector } from "@/src/app";
+import { useAppSelector } from "@/src/_app";
 
 const useUserSelector = () => {
   return {

@@ -1,4 +1,4 @@
-import { Setup, store } from "@/src/app";
+import { Setup, store } from "@/src/_app";
 import "@/src/styles/globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 import type { AppProps } from "next/app";

@@ -1,4 +1,4 @@
-import { useAppDispatch } from "@/src/app";
+import { useAppDispatch } from "@/src/_app";
 import { resetUser, setUser } from "@/src/features";
 import { useLoginMutation } from "@/src/features/mission/missionApi";
 import { Button, Input } from "@nextui-org/react";
