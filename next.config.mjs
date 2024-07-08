@@ -8,6 +8,25 @@ const remotes = (isServer) => {
     checkout: `checkout@http://localhost:3000/_next/static/${location}/remoteEntry.js`,
   };
 };
+
+const nextConfig = {
+  // output: "export",
+  reactStrictMode: true,
+  env: {
+    REACT_APP_COMPANY: process.env.REACT_APP_COMPANY,
+    REACT_APP_CURRENCY: process.env.REACT_APP_CURRENCY,
+    REACT_APP_LOCAL_API: process.env.REACT_APP_LOCAL_API,
+    REACT_APP_WEB_BASE: process.env.REACT_APP_WEB_BASE,
+    REACT_APP_CALIMACO_BASE: process.env.REACT_APP_CALIMACO_BASE,
+    REACT_APP_CALIMACO_API_BASE: process.env.REACT_APP_CALIMACO_API_BASE,
+    REACT_APP_CALIMACO_API_BASE_AUTH:
+      process.env.REACT_APP_CALIMACO_API_BASE_AUTH,
+    REACT_APP_WEB_CMS: process.env.REACT_APP_WEB_CMS,
+  },
+};
+
+export default nextConfig;
+
 export function webpack(config, options) {
   config.plugins.push(
     new NextFederationPlugin({
@@ -17,7 +36,7 @@ export function webpack(config, options) {
       exposes: {
         "./home": "./pages/index.tsx",
         "./about": "./pages/about.tsx",
-        "./pages-map": "./pages",
+        "./pages-map": "./pages-map.js",
       },
       remotes: remotes(options.isServer),
       shared: {},

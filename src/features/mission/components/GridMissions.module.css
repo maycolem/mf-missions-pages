@@ -1,0 +1,26 @@
+.missions {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr));
+}
+
+.card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card.old {
+  /* filter: grayscale(100%); */
+}
+
+.card__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.card__buttons > button {
+  flex: 1;
+  min-height: 3rem;
+}
