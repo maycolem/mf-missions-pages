@@ -31,11 +31,19 @@ const nextConfig = {
         dts: false,
         exposes: {
           "./home": "./pages/index.tsx",
-          "./about": "./pages/about.tsx",
           "./pages-map": "./pages-map.js",
         },
         remotes: remotes(isServer),
-        shared: {},
+        shared: {
+          react: {
+            singleton: true,
+            requiredVersion: "^18.0.0",
+          },
+          "react-dom": {
+            singleton: true,
+            requiredVersion: "^18.0.0",
+          },
+        },
         extraOptions: {
           // exposePages: true,
         },
